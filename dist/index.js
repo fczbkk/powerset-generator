@@ -1,7 +1,7 @@
 "use strict";
-const testData = ['a', 'b', 'c', 'd'];
-const DEFAULT_MAX_RESULTS = 10000;
-function* powerSetGenerator(input = [], { maxResults = DEFAULT_MAX_RESULTS } = {}) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.powerSetGenerator = void 0;
+function* powerSetGenerator(input = [], { maxResults = Number.POSITIVE_INFINITY } = {}) {
     let resultCounter = 0;
     let offsets = generateOffsets(1);
     while ((offsets.length <= input.length) && (resultCounter < maxResults)) {
@@ -11,6 +11,7 @@ function* powerSetGenerator(input = [], { maxResults = DEFAULT_MAX_RESULTS } = {
         offsets = bumpOffsets(offsets, input.length - 1);
     }
 }
+exports.powerSetGenerator = powerSetGenerator;
 function bumpOffsets(offsets = [], maxValue = 0) {
     const size = offsets.length;
     if (size === 0) {
@@ -41,4 +42,5 @@ function generateOffsets(size = 1) {
     // I know there are smarter solutions using `Array.fill`. But this is supposed to work in IE.
     return Array.apply(null, Array(size)).map((value, index) => index);
 }
-console.log('result:', [...powerSetGenerator(testData)]);
+exports.default = powerSetGenerator;
+//# sourceMappingURL=index.js.map

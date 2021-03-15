@@ -2,7 +2,7 @@ type powerSetGeneratorOptions = {
   maxResults?: number
 }
 
-export default function * powerSetGenerator (
+export function * powerSetGenerator (
   input: Array<unknown> = [],
   {maxResults = Number.POSITIVE_INFINITY}: powerSetGeneratorOptions = {}
 ): IterableIterator<Array<unknown>> {
@@ -49,3 +49,5 @@ function generateOffsets (size: number = 1): Array<number> {
   // I know there are smarter solutions using `Array.fill`. But this is supposed to work in IE.
   return Array.apply(null, Array(size)).map((value, index) => index)
 }
+
+export default powerSetGenerator
