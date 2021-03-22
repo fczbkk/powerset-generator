@@ -2,10 +2,10 @@ type powerSetGeneratorOptions = {
   maxResults?: number
 }
 
-export function * powerSetGenerator (
-  input: Array<unknown> = [],
-  {maxResults = Number.POSITIVE_INFINITY}: powerSetGeneratorOptions = {}
-): IterableIterator<Array<unknown>> {
+export function * powerSetGenerator<T> (
+  input: Array<T> = [],
+  { maxResults = Number.POSITIVE_INFINITY }: powerSetGeneratorOptions = {}
+): IterableIterator<Array<T>> {
   let resultCounter = 0
   let offsets = generateOffsets(1)
 
@@ -46,8 +46,7 @@ function bumpOffsets (offsets: number[] = [], maxValue: number = 0): number[] {
  * Generates array of size N, filled with numbers sequence starting from 0.
  */
 function generateOffsets (size: number = 1): Array<number> {
-  // I know there are smarter solutions using `Array.fill`. But this is supposed to work in IE.
-  return Array.apply(null, Array(size)).map((value, index) => index)
+  return Array.from(Array(size).keys())
 }
 
 export default powerSetGenerator
