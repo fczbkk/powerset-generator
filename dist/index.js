@@ -39,8 +39,7 @@ function bumpOffsets(offsets = [], maxValue = 0) {
  * Generates array of size N, filled with numbers sequence starting from 0.
  */
 function generateOffsets(size = 1) {
-    // I know there are smarter solutions using `Array.fill`. But this is supposed to work in IE.
-    return Array.apply(null, Array(size)).map((value, index) => index);
+    return Array.from(Array(size).keys());
 }
 exports.default = powerSetGenerator;
 //# sourceMappingURL=index.js.map

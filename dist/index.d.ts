@@ -1,5 +1,5 @@
 declare type powerSetGeneratorOptions = {
     maxResults?: number;
 };
-export declare function powerSetGenerator(input?: Array<unknown>, { maxResults }?: powerSetGeneratorOptions): IterableIterator<Array<unknown>>;
+export declare function powerSetGenerator<T>(input?: Array<T>, { maxResults }?: powerSetGeneratorOptions): IterableIterator<Array<T>>;
 export default powerSetGenerator;
