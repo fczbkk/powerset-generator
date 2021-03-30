@@ -12,7 +12,9 @@
     "compile": "tsc --outDir dist --project tsconfig.json",
     "cleanup": "rimraf dist",
     "test": "jest --config=jest.config.js",
-    "dev": "npm run test -- --watchAll"
+    "dev": "npm run test -- --watchAll",
+    "postversion": "git push && git push --tags && npm publish --access=public",
+    "version": "npm run build && git add -A"
   },
   "keywords": [],
   "author": "Riki Fridrich <riki@fczbkk.com> (https://fczbkk.com/)",
